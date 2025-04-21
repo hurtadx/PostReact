@@ -1,4 +1,19 @@
-function PostComments({ comments }) {
+import { useState } from "react";
+
+function PostComments({ comments, onAddComment }) {
+    const [newComment, setNewComment] = useState("");
+    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (newComment.trim()){
+            onAddComment(newComment);
+            setNewComment("");
+        }
+    }
+
+
+
+
   return (
     <div className="post-comments">
       <div className="comments-list">
@@ -18,12 +33,14 @@ function PostComments({ comments }) {
         ))}
       </div>
       
-      <form className="comment-form">
+      <form className="comment-form" onSubmit={handleSubmit}>
         <img src="../../IMG/placeholder-male.jpg" alt="Your profile" className="comment-profile-pic" />
         <input
           type="text"
           className="comment-input"
           placeholder="Escribe un comentario..."
+          value={newComment}
+          onChange={(e) => setNewComment(e.target.value)}
         />
         <button type="submit" className="comment-submit">Enviar</button>
       </form>
