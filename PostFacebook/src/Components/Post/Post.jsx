@@ -11,8 +11,25 @@ function Post() {
   const [postText, setPostText] = useState('Este es un ejemplo de post para practicar React');
   const [comments, setComments] = useState([]);
 
+  const handleImageUpload = (e) => {
+    setPostImage(imageUrl);
+  }
+
   const handleLike = () =>{
     setLikes(likes + 1);
+  }
+
+  const handleAddComment = (commentText) => {
+    const newComment = {
+        id: Date.now(), 
+        user: 'Usuario Actual',
+        profilePic: '../../assets/IMG/placeholder-male.jpg',
+        text: commentText,
+        timestamp: 'Ahora'
+      };
+
+    setComments([...comments, newComment]);
+    setCommentText('');
   }
 
 
@@ -25,15 +42,16 @@ function Post() {
       />
       <PostContent 
         text="Este es un ejemplo de post para practicar React" 
-        image={null}
+        image={handleImageUpload}
       />
       <PostActions 
         likes={likes} 
-        comments={0} 
+        comments={comments.length} 
         onLike={handleLike}
       />
       <PostComments 
-        comments={[]} 
+        comments={comments} 
+        onAddComment={handleAddComment}
       />
     </div>
   );
