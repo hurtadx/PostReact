@@ -11,11 +11,11 @@ function Post() {
   const [postText, setPostText] = useState('Este es un ejemplo de post para practicar React');
   const [comments, setComments] = useState([]);
 
-  const handleImageUpload = (e) => {
+  const handleImageUpload = (imageUrl) => {
     setPostImage(imageUrl);
   }
 
-  const handleLike = () =>{
+  const handleLike = () => {
     setLikes(likes + 1);
   }
 
@@ -23,26 +23,25 @@ function Post() {
     const newComment = {
         id: Date.now(), 
         user: 'Usuario Actual',
-        profilePic: '../../assets/IMG/placeholder-male.jpg',
+        profilePic: "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y",
         text: commentText,
         timestamp: 'Ahora'
       };
 
     setComments([...comments, newComment]);
-    setCommentText('');
   }
-
 
   return (
     <div className="post">
       <PostHeader 
         username="Usuario Ejemplo" 
-        profilePic="../../IMG/placeholder-male.jpg" 
+        profilePic="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200" 
         timestamp="Hace 2 horas" 
       />
       <PostContent 
-        text="Este es un ejemplo de post para practicar React" 
-        image={handleImageUpload}
+        text={postText}
+        image={postImage}
+        onImageUpload={handleImageUpload}
       />
       <PostActions 
         likes={likes} 
