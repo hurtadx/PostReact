@@ -1,11 +1,15 @@
 import { useState } from 'react'
 import './App.css'
-import Post from './Components/Post/Post'
+import Feed from './Components/Feed/Feed'
+//import Post from './Components/Post/Post'
 
 function App() {
   return (
-    <div className="posts-container">
-      <Post />
+    <div className="app-container">
+      <main className='app-content'>
+        <Feed />
+      </main>
+      
     </div>
   )
 }
