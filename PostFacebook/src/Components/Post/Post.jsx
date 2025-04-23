@@ -6,6 +6,9 @@ import PostComments from './PostComments';
 import './Post.css';
 
 function Post() {
+  
+
+
   const [likes, setLikes] = useState(0);
   const [postImage, setPostImage] = useState(null);
   const [postText, setPostText] = useState('Este es un ejemplo de post para practicar React');
