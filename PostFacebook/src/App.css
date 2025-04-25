@@ -1,42 +1,229 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  height: 60px;
+  background-color: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  color: #1877f2;
+  font-size: 30px;
+  margin-right: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.nav-tabs {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  gap: 10px;
+}
+
+.nav-tab {
+  background: none;
+  border: none;
+  color: #65676b;
+  padding: 0 16px;
+  height: 60px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  border-bottom: 3px solid transparent;
+  position: relative;
+}
+
+.nav-tab i {
+  margin-right: 8px;
+}
+
+.nav-tab.active {
+  color: #1877f2;
+  border-bottom-color: #1877f2;
+}
+
+.nav-tab:hover {
+  background-color: #f0f2f5;
+}
+
+.badge {
+  background-color: #e41e3f;
+  color: white;
+  border-radius: 50%;
+  min-width: 18px;
+  height: 18px;
+  font-size: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+
+.shared-posts-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  width: 100%;
+}
+
+.shared-posts-container h2 {
+  color: #1c1e21;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.empty-state {
+  background-color: white;
+  border-radius: 8px;
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.empty-icon {
+  font-size: 48px;
+  color: #65676b;
+  margin-bottom: 16px;
+}
+
+.empty-state p {
+  color: #65676b;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.empty-state button {
+  background-color: #1877f2;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.empty-state button:hover {
+  background-color: #166fe5;
+}
+
+
+@media (max-width: 768px) {
+  .app-header {
+    padding: 0 8px;
+    height: 50px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .logo {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  .nav-tabs {
+    gap: 0;
+  }
+  
+  .nav-tab {
+    padding: 0 10px;
+    height: 50px;
+    font-size: 14px;
+  }
+  
+  .nav-tab i {
+    font-size: 18px;
+    margin-right: 0;
+  }
+  
+  .nav-tab span {
+    display: none;
+  }
+  
+  .badge {
+    top: 5px;
+    right: 5px;
+    min-width: 16px;
+    height: 16px;
+    font-size: 10px;
+  }
+  
+  .shared-posts-container {
+    padding: 10px;
+  }
+  
+  .shared-posts-container h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .empty-state {
+    padding: 20px 10px;
+  }
+  
+  .empty-icon {
+    font-size: 32px;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+
+@media (max-width: 480px) {
+  .app-container {
+    padding-bottom: 50px; 
   }
-}
+  
+  .app-header {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    width: 100%;
+    border-top: 1px solid var(--border-color);
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+  }
+  
+  .logo {
+    display: none;
+  }
+  
+  .nav-tabs {
+    width: 100%;
+    justify-content: space-around;
+  }
+  
+  .nav-tab {
+    flex-direction: column;
+    font-size: 10px;
+    padding: 5px 0;
+    height: auto;
+  }
+  
+  .nav-tab i {
+    font-size: 20px;
+    margin: 0 0 2px 0;
+  }
+  
 
-.card {
-  padding: 2em;
-}
+  .nav-tab span {
+    display: none;
+  }
 
-.read-the-docs {
-  color: #888;
+  .badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 }
