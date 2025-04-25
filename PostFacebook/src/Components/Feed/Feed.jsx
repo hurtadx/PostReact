@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Post from "../Post/Post"; 
 import "./Feed.css";
 
-function Feed() {
+function Feed({ onSharePost }) {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -104,6 +104,16 @@ function Feed() {
         );
     };
 
+
+    const handleSharePost = (postId) => {
+    
+        const postToShare = posts.find(post => post.id === postId);
+        if (postToShare) {
+            onSharePost(postToShare);
+
+        }
+    };
+
     return (
         <div className="feed">
             {loading && page === 1 ? (
@@ -134,6 +144,7 @@ function Feed() {
                             comments={post.comments}
                             onLike={() => handleLike(post.id)}
                             onAddComment={(text) => handleAddComment(post.id, text)}
+                            onSharePost={() => handleSharePost(post.id)} 
                         />
                     ))}
                     
