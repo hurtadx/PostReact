@@ -44,6 +44,16 @@ function App() {
             )}
           </button>
         </nav>
+        
+
+        <a 
+          href="https://github.com/hurtadx/PostReact" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="github-link"
+        >
+          <i className="fab fa-github"></i>
+        </a>
       </header>
       
       <main className='app-content'>
