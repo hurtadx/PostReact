@@ -72,3 +72,28 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
+@media (max-width: 768px) {
+ 
+  button, 
+  .action-button, 
+  .comment-action,
+  .nav-tab {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+ 
+  .action-button, 
+  .comment-action,
+  .comment-submit,
+  .nav-tab {
+    min-height: 44px;
+  }
+  
+ 
+  .post:hover {
+    transform: none;
+  }
+}
