@@ -1,4 +1,4 @@
-function PostActions({ likes, comments, onLike }) {
+function PostActions({ likes, comments, onLike, onShare }) {
   return (
     <div className="post-actions">
       <div className="post-stats">
@@ -7,13 +7,16 @@ function PostActions({ likes, comments, onLike }) {
       </div>
       <div className="action-buttons">
         <button className="action-button" onClick={onLike}>
-           Me gusta
+          <i className="fa-solid fa-thumbs-up"></i> 
+          <span className="action-text">Me gusta</span>
         </button>
         <button className="action-button">
-           Comentar
+          <i className="fa-solid fa-comment"></i> 
+          <span className="action-text">Comentar</span>
         </button>
-        <button className="action-button">
-           Compartir
+        <button className="action-button" onClick={onShare}>
+          <i className="fa-solid fa-share"></i> 
+          <span className="action-text">Compartir</span>
         </button>
       </div>
     </div>
